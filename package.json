@@ -1,0 +1,67 @@
+{
+	"name": "vl-ui-functional-header",
+	"version": "0.0.0",
+	"description": "Toont bovenaan de pagina generieke informatie zonder af te leiden zoals bijvoorgeeld titel, acties, tab navigatie of zoek input.",
+	"author": "DIDM",
+	"license": "MIT",
+	"main": "./src/index.js",
+	"exports": {
+		"require": "./index.js",
+		"import": "./src/index.js",
+		"node": "./index.js",
+		"default": "./index.js"
+	},
+	"homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-functional-header#readme",
+	"bugs": {
+		"url": "https://github.com/milieuinfo/webcomponent-vl-ui-functional-header/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/milieuinfo/webcomponent-vl-ui-functional-header.git"
+	},
+	"publishConfig": {
+		"registry": "http://artifactory-pr-build.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/"
+	},
+	"scripts": {
+		"prepare": "npm update --dev vl-ui-util && npm run prepare:util",
+		"prepare:util": "npm explore vl-ui-util -- npm run util",
+		"test": "npm run test:unit && npm run test:e2e",
+		"test:unit": "wct --config-file ./wct.local.conf.json",
+		"test:e2e": "npm run test:server:start && npm run test:e2e:chrome && npm run test:e2e:firefox",
+		"test:e2e:grid": "npm run test:server:start && npm run test:e2e:chrome:grid && npm run test:e2e:firefox:grid",
+		"test:grid": "wct --config-file ./wct.docker.conf.json && npm run test:e2e:grid",
+		"posttest:e2e": "pkill -f http-server",
+		"test:e2e:chrome": "mocha --chrome",
+		"test:e2e:chrome:grid": "mocha --chrome --grid",
+		"test:e2e:firefox": "mocha --firefox",
+		"test:e2e:firefox:grid": "mocha --firefox --grid",
+		"test:e2e:opera": "mocha --opera",
+		"test:e2e:safari": "mocha --safari",
+		"test:server:start": "http-server &",
+		"release": "np",
+		"release:prepare": "npm explore vl-ui-util -- npm run release-component:prepare $(pwd) functional-header",
+		"release:testless": "np --yolo",
+		"demo": "http-server"
+	},
+	"dependencies": {
+		"vl-ui-core": "^5.0.1",
+		"vl-ui-link": "^4.0.1",
+		"vl-ui-icon": "^5.0.1"
+	},
+	"peerDependencies": {
+		"vl-ui-core": "^5.0.1",
+		"vl-ui-link": "^4.0.1",
+		"vl-ui-icon": "^5.0.1"
+	},
+	"devDependencies": {
+		"@govflanders/vl-ui-util": "3.9.1",
+		"@govflanders/vl-ui-tabs": "3.9.1",
+		"@govflanders/vl-ui-link": "3.9.1",
+		"@govflanders/vl-ui-input-field": "3.9.1",
+		"@govflanders/vl-ui-search": "3.9.1",
+		"@govflanders/vl-ui-button": "3.9.1",
+		"@govflanders/vl-ui-breadcrumb": "3.9.1",
+		"@govflanders/vl-ui-functional-header": "3.9.1",
+		"vl-ui-util": "^5.0.7"
+	}
+}

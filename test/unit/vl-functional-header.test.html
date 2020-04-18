@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="../../../@webcomponents/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../../web-component-tester/browser.js"></script>
+
+  <script type="module" src="../../src/vl-functional-header.js"></script>
+</head>
+
+<body>
+  <test-fixture id="vl-functional-header-fixture">
+    <template>
+      <vl-functional-header></vl-functional-header>
+    </template>
+  </test-fixture>
+
+  <test-fixture id="vl-functional-header-slots-fixture">
+    <template>
+      <vl-functional-header>
+        <a slot="title" href="https://webcomponents.omgeving.Vlaanderen.be/">dit is een titel</a>
+        <span slot="sub-title">dit is een sub titel</span>
+      </vl-functional-header>
+    </template>
+  </test-fixture>
+
+  <script>
+    suite('<vl-functional-header>', () => {
+      const should = chai.should();
+      const sandbox = sinon.sandbox.create();
+
+      teardown(() => {
+        sandbox.restore();
+      });
+
+      test('toont de titel op basis van het titel attribuut', () => {
+        const element = fixture('vl-functional-header-fixture');
+        const text = 'Dit is een titel';
+        element.setAttribute('data-vl-title', text);
+        const title = element._titleElement;
+        assert.equal(title.innerText, text);
+      });
+
+      test('kan de titel link bepalen door het link attribuut', () => {
+        const element = fixture('vl-functional-header-fixture');
+        const link = 'https://webcomponenten.omgeving.vlaanderen.be/';
+        element.setAttribute('data-vl-link', link);
+        const title = element._titleElement;
+        assert.equal(title.href, link);
+      });
+
+      test('toont de titel op basis van het slot element', () => {
+        const element = fixture('vl-functional-header-slots-fixture');
+        const slot = element.querySelector('[slot="title"]');
+        const title = element._shadow.querySelector('slot[name="title"]');
+        assert.equal(title.assignedElements()[0], slot);
+      });
+
+      test('toont de sub titel op basis van het sub titel attribuut', () => {
+        const element = fixture('vl-functional-header-fixture');
+        const text = 'Dit is een sub titel';
+        element.setAttribute('data-vl-sub-title', text);
+        const subTitle = element._subTitleElement;
+        assert.equal(subTitle.innerText, text);
+      });
+
+      test('toont de sub titel op basis van het slot element', () => {
+        const element = fixture('vl-functional-header-slots-fixture');
+        const slot = element.querySelector('[slot="sub-title"]');
+        const subTitle = element._shadow.querySelector('slot[name="sub-title"]');
+        assert.equal(subTitle.assignedElements()[0], slot);
+      });
+
+      test('bevat een back link element die bij het klikken de vorige browser pagina zal openen', (done) => {
+        const element = fixture('vl-functional-header-fixture');
+        const backLink = element._backLinkElement;
+        should.exist(backLink);
+        sandbox.stub(window.history, 'back');
+        backLink.onclick = () => {
+          assert(window.history.back.called);
+          done();
+        };
+        backLink.click();
+      });
+    });
+  </script>
+</body>
+
+</html>

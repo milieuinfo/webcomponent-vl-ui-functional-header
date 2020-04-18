@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>vl-functional-header voorbeeld</title>
+    <script type="module" src="demo.js"></script>
+    <script type="module" src="/src/vl-functional-header.js"></script>
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-core/dist/style.css" />
+</head>
+
+<body>
+    <h1>vl-ui-functional-header demo</h1>
+    <p>
+        <a href="https://overheid.vlaanderen.be/webuniversum/v3/documentation/components/vl-ui-alert">
+            Meer voorbeelden en documentatie</a>.
+    </p>
+
+    <div>
+        <h2>Functional header</h2>
+        <pre>
+            <code class="line-numbers language-markup">
+                &lt;vl-functional-header data-vl-title="School- en studietoelagen" data-vl-sub-title="Voor lager, middelbaar en hoger onderwijs" data-vl-link="#"&gt;&lt;/vl-functional-header&gt;
+            </code>
+        </pre>
+        <div class="demo">
+            <vl-functional-header id="functional-header" data-vl-title="School- en studietoelagen" data-vl-sub-title="Voor lager, middelbaar en hoger onderwijs" data-vl-link="#"></vl-functional-header>
+        </div>
+    </div>
+
+    <div>
+        <h2>Functional header met slot elementen</h2>
+        <pre>
+            <code class="line-numbers language-markup">
+                &lt;vl-functional-header id="functional-header-slots" data-vl-link="https://webcomponenten.omgeving.vlaanderen.be"&gt;
+                    &lt;span slot="title"&gt;School- en studietoelagen&lt;/span&gt;
+                    &lt;span slot="sub-title"&gt;Voor lager, middelbaar en hoger onderwijs&lt;/span&gt;
+                &lt;/vl-functional-header&gt;
+            </code>
+        </pre>
+        <div class="demo">
+            <vl-functional-header id="functional-header-slots" data-vl-link="https://webcomponenten.omgeving.vlaanderen.be">
+                <span slot="title">School- en studietoelagen</span>
+                <span slot="sub-title">Voor lager, middelbaar en hoger onderwijs</span>
+            </vl-functional-header>
+        </div>
+    </div>
+</body>
+
+</html>
