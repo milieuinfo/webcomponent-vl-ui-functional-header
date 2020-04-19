@@ -7,9 +7,9 @@ import '/node_modules/vl-ui-icon/dist/vl-icon.js';
  * @class
  * @classdesc Toont bovenaan de pagina generieke informatie zonder af te leiden zoals bijvoorgeeld titel, acties, tab navigatie of zoek input.
  * 
- * @property {boolean} data-vl-link - Attribuut wordt gebruikt om de link van de titel te bepalen.
- * @property {boolean} data-vl-title - Attribuut wordt gebruikt om de tekst van de titel te bepalen.
- * @property {boolean} data-vl-sub-title - Attribuut wordt gebruikt om de tekst van de sub titel te bepalen.
+ * @property {String} data-vl-link - Attribuut wordt gebruikt om de link van de titel te bepalen.
+ * @property {String} data-vl-title - Attribuut wordt gebruikt om de tekst van de titel te bepalen.
+ * @property {String} data-vl-sub-title - Attribuut wordt gebruikt om de tekst van de sub titel te bepalen.
  * 
  * @extends VlElement
  * 
