@@ -13,6 +13,16 @@ class VlFunctionalHeader extends VlElement {
         return new VlElement(this.driver, element);
     }
 
+    async getTitleSlotNodes() {
+        const slot = await this.shadowRoot.findElement(By.css('slot[name="title"]'));
+        return this.getAssignedNodes(slot);
+    }
+
+    async getSubTitleSlotNodes() {
+        const slot = await this.shadowRoot.findElement(By.css('slot[name="sub-title"]'));
+        return this.getAssignedNodes(slot);
+    }
+
     async back() {
         const element = await this.shadowRoot.findElement(By.css('#back-link'));
         const link = await new VlLink(this.driver, element);
