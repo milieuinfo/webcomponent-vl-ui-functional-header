@@ -21,6 +21,7 @@
       <vl-functional-header>
         <a slot="title" href="https://webcomponents.omgeving.Vlaanderen.be/">dit is een titel</a>
         <span slot="sub-title">dit is een sub titel</span>
+        <span slot="back">dit is een back link tekst</span>
       </vl-functional-header>
     </template>
   </test-fixture>
@@ -82,6 +83,21 @@
           done();
         };
         backLink.click();
+      });
+
+      test('kan de tekst van de back link wijzigen via een attribuut', () => {
+        const element = fixture('vl-functional-header-fixture');
+        const text = 'test';
+        element.setAttribute('data-vl-back', text);
+        const backLink = element._backLinkElement;
+        assert.equal(backLink.innerText, text);
+      });
+
+      test('kan de tekst van de back link wijzigen via een slot element', () => {
+        const element = fixture('vl-functional-header-slots-fixture');
+        const slot = element.querySelector('[slot="back"]');
+        const back = element._shadow.querySelector('slot[name="back"]');
+        assert.equal(back.assignedElements()[0], slot);
       });
     });
   </script>

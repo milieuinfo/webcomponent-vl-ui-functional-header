@@ -7,6 +7,7 @@ import '/node_modules/vl-ui-icon/dist/vl-icon.js';
  * @class
  * @classdesc Toont bovenaan de pagina generieke informatie zonder af te leiden zoals bijvoorgeeld titel, acties, tab navigatie of zoek input.
  * 
+ * @property {String} data-vl-back - Attribuut wordt gebruikt om de terug link tekst te bepalen.
  * @property {String} data-vl-link - Attribuut wordt gebruikt om de link van de titel te bepalen.
  * @property {String} data-vl-title - Attribuut wordt gebruikt om de tekst van de titel te bepalen.
  * @property {String} data-vl-sub-title - Attribuut wordt gebruikt om de tekst van de sub titel te bepalen.
@@ -20,7 +21,7 @@ import '/node_modules/vl-ui-icon/dist/vl-icon.js';
  */
 export class VlFunctionalHeader extends VlElement(HTMLElement) {
     static get _observedAttributes() {
-        return ['title', 'sub-title', 'link'];
+        return ['back', 'title', 'sub-title', 'link'];
     }
 
     constructor() {
@@ -46,7 +47,9 @@ export class VlFunctionalHeader extends VlElement(HTMLElement) {
                             <li class="vl-functional-header__sub__action">
                                 <a id="back-link" is="vl-link">
                                     <span is="vl-icon" data-vl-icon="arrow-left-fat" data-vl-before></span>
-                                    <span>Terug</span>
+                                    <slot id="back-link-text" name="back">
+                                        <span>Terug</span>
+                                    </slot>
                                 </a>
                             </li>
                             <li id="sub-title" class="vl-functional-header__sub__action">
@@ -75,6 +78,10 @@ export class VlFunctionalHeader extends VlElement(HTMLElement) {
         return this._shadow.querySelector('#back-link');
     }
 
+    get _backLinkTextElement() {
+        return this._backLinkElement.querySelector('#back-link-text');
+    }
+
     _titleChangedCallback(oldValue, newValue) {
         this._titleElement.innerText = newValue;
     }
@@ -85,6 +92,10 @@ export class VlFunctionalHeader extends VlElement(HTMLElement) {
 
     _linkChangedCallback(oldValeu, newValue) {
         this._titleElement.href = newValue;
+    }
+
+    _backChangedCallback(oldValue, newValue) {
+        this._backLinkTextElement.innerText = newValue;
     }
 
     _registerBackLink() {
