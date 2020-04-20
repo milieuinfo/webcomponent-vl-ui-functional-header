@@ -35,7 +35,7 @@ describe('vl-functional-header', async () => {
     });
 
     it('als gebruiker kan ik naar de vorige pagina gaan', async () => {
-        const URL = 'https://webcomponenten.omgeving.vlaanderen.be/doc/index.html';
+        const URL = 'https://nodejs.org';
         await driver.get(URL);
         await vlFunctionalHeaderPage.load();
         const functionalHeader = await vlFunctionalHeaderPage.getFunctionalHeader();
