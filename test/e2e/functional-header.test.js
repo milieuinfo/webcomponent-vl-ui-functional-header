@@ -35,7 +35,7 @@ describe('vl-functional-header', async () => {
     });
 
     it('als gebruiker kan ik naar de vorige pagina gaan', async () => {
-        const URL = 'https://nodejs.org';
+        const URL = 'https://nodejs.org/en/';
         await driver.get(URL);
         await vlFunctionalHeaderPage.load();
         const functionalHeader = await vlFunctionalHeaderPage.getFunctionalHeader();
