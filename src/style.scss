@@ -1,0 +1,30 @@
+// ==========================================================================
+// Vlaanderen UI -- FunctionalHeader
+// ==========================================================================
+@charset "utf-8";
+
+// ==========================================================================
+// Core
+// ==========================================================================
+@import "vl-ui-core/src/scss/core";
+
+// ==========================================================================
+// Util
+// ==========================================================================
+@import "vl-ui-util/src/scss/util";
+
+// ==========================================================================
+// Components
+// ==========================================================================
+@import "vl-ui-tabs/src/scss/tabs";
+@import "vl-ui-link/src/scss/link";
+@import "vl-ui-input-field/src/scss/input-field";
+@import "vl-ui-search/src/scss/search";
+@import "vl-ui-button/src/scss/button";
+@import "vl-ui-breadcrumb/src/scss/breadcrumb";
+@import "vl-ui-functional-header/src/scss/functional-header";
+
+// Cover old style issue
+[is='vl-icon'] {
+    line-height: 100%;
+}
