@@ -43,5 +43,14 @@ describe('vl-functional-header', async () => {
         await functionalHeader.back();
         await assert.eventually.isFalse(vlFunctionalHeaderPage.isCurrentPage());
         await assert.eventually.equal(driver.getCurrentUrl(), URL);
+        await vlFunctionalHeaderPage.load();
+    });
+
+    it('als gebruiker kan ik op een actie klikken', async () => {
+        const functionalHeader = await vlFunctionalHeaderPage.getFunctionalHeaderActionsSlot();
+        const actions = await functionalHeader.getActionNodes();
+        await actions[0].click();
+        const url = await driver.getCurrentUrl();
+        assert.isTrue(url.endsWith('/demo/vl-functional-header.html#'));
     });
 });

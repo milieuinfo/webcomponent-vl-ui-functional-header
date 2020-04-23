@@ -46,6 +46,32 @@
             </vl-functional-header>
         </div>
     </div>
+
+    <div>
+        <h2>Functional header met gebruikersinteractie</h2>
+        <pre>
+            <code class="line-numbers language-markup">
+                &lt;vl-functional-header id="functional-header-slots" data-vl-link="https://webcomponenten.omgeving.vlaanderen.be"&gt;
+                    &lt;span slot="title"&gt;School- en studietoelagen&lt;/span&gt;
+                    &lt;span slot="sub-title"&gt;Voor lager, middelbaar en hoger onderwijs&lt;/span&gt;
+                    &lt;span slot="back"&gt;Terug&lt;/span&gt;
+                    &lt;div slot="actions"&gt;
+                        &lt;a href="#"&gt;Koen Peeters&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/vl-functional-header&gt;
+            </code>
+        </pre>
+        <div class="demo">
+            <vl-functional-header id="functional-header-actions-slot" data-vl-link="https://webcomponenten.omgeving.vlaanderen.be">
+                <span slot="title">School- en studietoelagen</span>
+                <span slot="sub-title">Voor lager, middelbaar en hoger onderwijs</span>
+                <span slot="back">Terug</span>
+                <div slot="actions">
+                    <a href="#">Koen Peeters</a>
+                </div>
+            </vl-functional-header>
+        </div>
+    </div>
 </body>
 
 </html>

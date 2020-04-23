@@ -4,29 +4,39 @@ const { VlLink } = require('vl-ui-link').Test.VlLink;
 
 class VlFunctionalHeader extends VlElement {
     async getTitle() {
-        const element = await this.shadowRoot.findElement(By.css('#title'));
-        return new VlElement(this.driver, element);
+        return this._getElement('#title');
     }
 
     async getSubTitle() {
-        const element = await this.shadowRoot.findElement(By.css('#sub-title'));
-        return new VlElement(this.driver, element);
+        return this._getElement('#sub-title');
     }
 
     async getTitleSlotNodes() {
-        const slot = await this.shadowRoot.findElement(By.css('slot[name="title"]'));
-        return this.getAssignedNodes(slot);
+        return this._getSlotNodes('title');
     }
 
     async getSubTitleSlotNodes() {
-        const slot = await this.shadowRoot.findElement(By.css('slot[name="sub-title"]'));
-        return this.getAssignedNodes(slot);
+        return this._getSlotNodes('sub-title');
+    }
+
+    async getActionNodes() {
+        return this.shadowRoot.findElements(By.css('#actions ul li > *'));
     }
 
     async back() {
         const element = await this.shadowRoot.findElement(By.css('#back-link'));
         const link = await new VlLink(this.driver, element);
         return link.click();
+    }
+
+    async _getElement(selector) {
+        const element = await this.shadowRoot.findElement(By.css(selector));
+        return new VlElement(this.driver, element);
+    }
+
+    async _getSlotNodes(name) {
+        const slot = await this.shadowRoot.findElement(By.css(`slot[name="${name}"]`));
+        return this.getAssignedNodes(slot);
     }
 }
 
