@@ -41,6 +41,9 @@ export class VlFunctionalHeader extends VlElement(HTMLElement) {
                                 </a>
                             </h1>
                         </div>
+                        <div id="actions" class="vl-functional-header__actions">
+                            <ul></ul>
+                        </div>
                     </div>
                     <div class="vl-functional-header__sub">
                         <ul class="vl-functional-header__sub__actions">
@@ -64,6 +67,12 @@ export class VlFunctionalHeader extends VlElement(HTMLElement) {
 
     connectedCallback() {
         this._registerBackLink();
+        this._observer = this.__observeSlotElements(() => this.__processSlotElements());
+        this.__processSlotElements();
+    }
+
+    disconnectedCallback() {
+        this._observer.disconnect();
     }
 
     get _titleElement() {
@@ -80,6 +89,24 @@ export class VlFunctionalHeader extends VlElement(HTMLElement) {
 
     get _backLinkTextElement() {
         return this._backLinkElement.querySelector('#back-link-text');
+    }
+
+    get _actionsElement() {
+        return this._shadow.querySelector('#actions');
+    }
+
+    get _actionsListElement() {
+        return this._actionsElement.querySelector('ul');
+    }
+
+    _getActionTemplate(element) {
+        return this._template(`
+            <li class="vl-functional-header__action">
+                <p>
+                    ${element.outerHTML}
+                </p>
+            </li>
+        `);
     }
 
     _titleChangedCallback(oldValue, newValue) {
@@ -100,6 +127,26 @@ export class VlFunctionalHeader extends VlElement(HTMLElement) {
 
     _registerBackLink() {
         this._backLinkElement.addEventListener('click', () => window.history.back());
+    }
+
+    __processSlotElements() {
+        this.__processSlotActions();
+    }
+
+    __processSlotActions() {
+        this._actionsListElement.innerHTML = '';
+        const actions = this.querySelector('[slot="actions"]');
+        if (actions) {
+            [... actions.children].map(action => this._getActionTemplate(action)).forEach(action => this._actionsListElement.append(action));
+        } else {
+            this._actionsElement.hidden = true;
+        }
+    }
+
+    __observeSlotElements(callback) {
+        const observer = new MutationObserver(callback);
+        observer.observe(this, { attributes: true, childList: true, characterData: true, subtree: true });
+        return observer;
     }
 }
 
