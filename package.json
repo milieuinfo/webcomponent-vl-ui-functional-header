@@ -54,7 +54,7 @@
 		"vl-ui-icon": "^5.0.1"
 	},
 	"devDependencies": {
-		"@govflanders/vl-ui-util": "3.9.1",
+		"@govflanders/vl-ui-util": "3.9.2",
 		"@govflanders/vl-ui-tabs": "3.9.1",
 		"@govflanders/vl-ui-link": "3.9.2",
 		"@govflanders/vl-ui-input-field": "3.9.2",
