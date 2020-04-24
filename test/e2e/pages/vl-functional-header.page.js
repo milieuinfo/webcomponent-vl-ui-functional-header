@@ -15,6 +15,10 @@ class VlFunctionalHeaderPage extends Page {
         return this._getFunctionalHeader('#functional-header-slots');
     }
 
+    async getFunctionalHeaderActionsSlot() {
+        return this._getFunctionalHeader('#functional-header-actions-slot');
+    }
+
     async load() {
         await super.load(Config.baseUrl + this.URL);
     }

@@ -22,6 +22,10 @@
         <a slot="title" href="https://webcomponents.omgeving.Vlaanderen.be/">dit is een titel</a>
         <span slot="sub-title">dit is een sub titel</span>
         <span slot="back">dit is een back link tekst</span>
+        <div slot="actions">
+          <a>dit is een actie</a>
+          <a>dit is een actie</a>
+        </div>
       </vl-functional-header>
     </template>
   </test-fixture>
@@ -98,6 +102,34 @@
         const slot = element.querySelector('[slot="back"]');
         const back = element._shadow.querySelector('slot[name="back"]');
         assert.equal(back.assignedElements()[0], slot);
+      });
+
+      test('toont geen acties container als er geen actie aanwezig is', () => {
+        const element = fixture('vl-functional-header-fixture');
+        assert.isTrue(element._actionsElement.hidden);
+      });
+
+      test('toont voor elk actie slot child element een actie', () => {
+        const element = fixture('vl-functional-header-slots-fixture');
+        assert.isFalse(element._actionsElement.hidden);
+        const actions = [... element.querySelector('[slot="actions"]').children];
+        assert.equal(element._actionsListElement.children.length, actions.length);
+        [... element._actionsListElement.children].forEach((child, index) => {
+          assert.isTrue(child.classList.contains('vl-functional-header__action'));
+          const p = child.querySelector('p');
+          assert.isTrue(p.firstElementChild.isEqualNode(actions[index]));
+        });
+      });
+
+      test('toont de acties opnieuw indien er iets wijzigt', (done) => {
+        const element = fixture('vl-functional-header-slots-fixture');
+        const actions = [... element.querySelector('[slot="actions"]').children];
+        [... element._actionsListElement.children].forEach((child, index) => assert.isTrue(child.querySelector('p').firstElementChild.isEqualNode(actions[index])));
+        actions[0].innerText = 'dit is een nieuwe actie';
+        setTimeout(() => {
+          [... element._actionsListElement.children].forEach((child, index) => assert.isTrue(child.querySelector('p').firstElementChild.isEqualNode(actions[index])));
+          done();
+        });
       });
     });
   </script>
