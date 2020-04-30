@@ -89,6 +89,19 @@
         backLink.click();
       });
 
+      test('de click event listener van de back link kan gewijzigd worden', (done) => {
+        const element = fixture('vl-functional-header-fixture');
+        const backLink = element._backLinkElement;
+        should.exist(backLink);
+        sandbox.stub(window.history, 'back');
+        element.backLinkEventListener = () => {
+          assert.isFalse(window.history.back.called);
+          assert.isNotNull(element._backLinkEventListener);
+          done();
+        };
+        backLink.click();
+      });
+
       test('kan de tekst van de back link wijzigen via een attribuut', () => {
         const element = fixture('vl-functional-header-fixture');
         const text = 'test';

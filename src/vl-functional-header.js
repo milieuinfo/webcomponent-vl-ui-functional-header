@@ -6,18 +6,18 @@ import '/node_modules/vl-ui-icon/dist/vl-icon.js';
  * VlFunctionalHeader
  * @class
  * @classdesc Toont bovenaan de pagina generieke informatie zonder af te leiden zoals bijvoorgeeld titel, acties, tab navigatie of zoek input.
- * 
+ *
  * @property {String} data-vl-back - Attribuut wordt gebruikt om de terug link tekst te bepalen.
  * @property {String} data-vl-link - Attribuut wordt gebruikt om de link van de titel te bepalen.
  * @property {String} data-vl-title - Attribuut wordt gebruikt om de tekst van de titel te bepalen.
  * @property {String} data-vl-sub-title - Attribuut wordt gebruikt om de tekst van de sub titel te bepalen.
- * 
+ *
  * @extends VlElement
- * 
+ *
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-functional-header/releases/latest|Release notes}
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-functional-header/issues|Issues}
  * @see {@link https://webcomponenten.omgeving.vlaanderen.be/demo/vl-functional-header.html|Demo}
- * 
+ *
  */
 export class VlFunctionalHeader extends VlElement(HTMLElement) {
     static get _observedAttributes() {
@@ -126,7 +126,20 @@ export class VlFunctionalHeader extends VlElement(HTMLElement) {
     }
 
     _registerBackLink() {
-        this._backLinkElement.addEventListener('click', () => window.history.back());
+        this.backLinkEventListener = () => window.history.back();
+    }
+
+    /**
+     * Zet de click event listener voor de 'Terug' knop. Default: ```() => window.history.back()```
+     *
+     * @param {Function} eventListener - Functie met de uit te voeren handeling als op de terug knop wordt geklikt.
+     */
+    set backLinkEventListener(eventListener) {
+        if (this._backLinkEventListener) {
+            this._backLinkElement.removeEventListener('click', this._backLinkEventListener);
+        }
+        this._backLinkEventListener = eventListener;
+        this._backLinkElement.addEventListener('click', this._backLinkEventListener);
     }
 
     __processSlotElements() {
