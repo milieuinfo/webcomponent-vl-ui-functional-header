@@ -54,14 +54,14 @@
 		"vl-ui-icon": "^5.0.1"
 	},
 	"devDependencies": {
-		"@govflanders/vl-ui-util": "3.9.2",
-		"@govflanders/vl-ui-tabs": "3.9.1",
-		"@govflanders/vl-ui-link": "3.9.2",
-		"@govflanders/vl-ui-input-field": "3.9.2",
-		"@govflanders/vl-ui-search": "3.9.1",
-		"@govflanders/vl-ui-button": "3.9.2",
 		"@govflanders/vl-ui-breadcrumb": "3.9.1",
+		"@govflanders/vl-ui-button": "3.9.2",
 		"@govflanders/vl-ui-functional-header": "3.9.1",
-		"vl-ui-util": "^5.0.7"
+		"@govflanders/vl-ui-input-field": "3.9.2",
+		"@govflanders/vl-ui-link": "3.9.2",
+		"@govflanders/vl-ui-search": "3.9.1",
+		"@govflanders/vl-ui-tabs": "3.9.1",
+		"@govflanders/vl-ui-util": "3.9.2",
+		"vl-ui-util": "github:milieuinfo/webcomponent-vl-ui-util#deleted-demo-code"
 	}
 }
