@@ -125,9 +125,9 @@
       test('toont voor elk actie slot child element een actie', () => {
         const element = fixture('vl-functional-header-slots-fixture');
         assert.isFalse(element._actionsElement.hidden);
-        const actions = [... element.querySelector('[slot="actions"]').children];
+        const actions = [...element.querySelector('[slot="actions"]').children];
         assert.equal(element._actionsListElement.children.length, actions.length);
-        [... element._actionsListElement.children].forEach((child, index) => {
+        [...element._actionsListElement.children].forEach((child, index) => {
           assert.isTrue(child.classList.contains('vl-functional-header__action'));
           const p = child.querySelector('p');
           assert.isTrue(p.firstElementChild.isEqualNode(actions[index]));
@@ -136,11 +136,11 @@
 
       test('toont de acties opnieuw indien er iets wijzigt', (done) => {
         const element = fixture('vl-functional-header-slots-fixture');
-        const actions = [... element.querySelector('[slot="actions"]').children];
-        [... element._actionsListElement.children].forEach((child, index) => assert.isTrue(child.querySelector('p').firstElementChild.isEqualNode(actions[index])));
+        const actions = [...element.querySelector('[slot="actions"]').children];
+        [...element._actionsListElement.children].forEach((child, index) => assert.isTrue(child.querySelector('p').firstElementChild.isEqualNode(actions[index])));
         actions[0].innerText = 'dit is een nieuwe actie';
         setTimeout(() => {
-          [... element._actionsListElement.children].forEach((child, index) => assert.isTrue(child.querySelector('p').firstElementChild.isEqualNode(actions[index])));
+          [...element._actionsListElement.children].forEach((child, index) => assert.isTrue(child.querySelector('p').firstElementChild.isEqualNode(actions[index])));
           done();
         });
       });
