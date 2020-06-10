@@ -28,7 +28,7 @@ export class VlFunctionalHeader extends vlElement(HTMLElement) {
   constructor() {
     super(`
         <style>
-            @import /node_modules/vl-ui-functional-header/dist/style.css;
+            @import '/node_modules/vl-ui-functional-header/dist/style.css';
             @import '/node_modules/vl-ui-link/dist/style.css';
             @import '/node_modules/vl-ui-icon/dist/style.css';
         </style>

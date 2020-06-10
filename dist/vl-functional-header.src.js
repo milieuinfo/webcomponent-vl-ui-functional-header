@@ -1,6 +1,6 @@
-import {vlElement, define} from vl-ui-core;
-import vl-ui-link;
-import vl-ui-icon;
+import {vlElement, define} from 'vl-ui-core';
+import 'vl-ui-link';
+import 'vl-ui-icon';
 
 /**
  * VlFunctionalHeader
