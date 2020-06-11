@@ -25,7 +25,7 @@ class VlFunctionalHeaderPage extends Page {
 
   async isCurrentPage() {
     const url = await this.driver.getCurrentUrl();
-    return url.endsWith(this.URL);
+    return url.endsWith(`${this.URL}?no-header=true&no-footer=true`);
   }
 
   async _getFunctionalHeader(selector) {
