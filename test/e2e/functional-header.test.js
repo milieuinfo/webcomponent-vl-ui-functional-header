@@ -31,7 +31,7 @@ describe('vl-functional-header', async () => {
     await title.click();
     await assert.eventually.isFalse(vlFunctionalHeaderPage.isCurrentPage());
     const url = await driver.getCurrentUrl();
-    assert.isTrue(url.endsWith('/demo/vl-functional-header.html#'));
+    assert.isTrue(url.endsWith('/demo/vl-functional-header.html?no-header=true&no-footer=true#'));
   });
 
   it('als gebruiker kan ik naar de vorige pagina gaan', async () => {
@@ -51,6 +51,6 @@ describe('vl-functional-header', async () => {
     const actions = await functionalHeader.getActionNodes();
     await actions[0].click();
     const url = await driver.getCurrentUrl();
-    assert.isTrue(url.endsWith('/demo/vl-functional-header.html#'));
+    assert.isTrue(url.endsWith('/demo/vl-functional-header.html?no-header=true&no-footer=true#'));
   });
 });
