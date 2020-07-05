@@ -54,7 +54,7 @@
 		"@govflanders/vl-ui-link": "3.10.1",
 		"@govflanders/vl-ui-search": "3.9.1",
 		"@govflanders/vl-ui-tabs": "3.9.1",
-		"@govflanders/vl-ui-util": "3.9.2",
+		"@govflanders/vl-ui-util": "3.10.1",
 		"vl-ui-util": "^5.2.8"
 	}
 }
