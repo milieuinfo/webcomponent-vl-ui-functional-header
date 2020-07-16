@@ -33,28 +33,28 @@
 		"test:e2e:grid": "npm explore vl-ui-util -- npm run test:component:e2e:grid",
 		"release": "npm explore vl-ui-util -- npm run release",
 		"release:prepare": "npm explore vl-ui-util -- npm run release-component:prepare $(pwd) functional-header",
-		"release:testless": "npm explore vl-ui-util -- npm run release:testless",
+		"release:testless": "np --yolo",
 		"demo": "http-server"
 	},
 	"dependencies": {
-		"vl-ui-core": "^5.5.5",
+		"vl-ui-core": "^5.6.2",
 		"vl-ui-icon": "^5.1.0",
-		"vl-ui-link": "^4.0.3"
+		"vl-ui-link": "^4.0.4"
 	},
 	"peerDependencies": {
-		"vl-ui-core": "^5.5.5",
+		"vl-ui-core": "^5.6.2",
 		"vl-ui-icon": "^5.1.0",
-		"vl-ui-link": "^4.0.3"
+		"vl-ui-link": "^4.0.4"
 	},
 	"devDependencies": {
 		"@govflanders/vl-ui-breadcrumb": "3.9.1",
 		"@govflanders/vl-ui-button": "3.9.2",
 		"@govflanders/vl-ui-functional-header": "3.9.1",
 		"@govflanders/vl-ui-input-field": "3.9.2",
-		"@govflanders/vl-ui-link": "3.10.1",
+		"@govflanders/vl-ui-link": "^3.10.1",
 		"@govflanders/vl-ui-search": "3.9.1",
 		"@govflanders/vl-ui-tabs": "3.9.1",
-		"@govflanders/vl-ui-util": "3.10.1",
-		"vl-ui-util": "^5.2.8"
+		"@govflanders/vl-ui-util": "^3.10.1",
+		"vl-ui-util": "^5.2.10"
 	}
 }
