@@ -37,24 +37,24 @@
 		"demo": "http-server"
 	},
 	"dependencies": {
-		"vl-ui-core": "^5.6.2",
-		"vl-ui-icon": "^5.1.0",
-		"vl-ui-link": "^4.0.4"
+		"vl-ui-core": "milieuinfo/webcomponent-vl-ui-core#3.11.5",
+		"vl-ui-icon": "milieuinfo/webcomponent-vl-ui-icon#3.11.5",
+		"vl-ui-link": "milieuinfo/webcomponent-vl-ui-link#3.11.5"
 	},
 	"peerDependencies": {
-		"vl-ui-core": "^5.6.2",
-		"vl-ui-icon": "^5.1.0",
-		"vl-ui-link": "^4.0.4"
+		"vl-ui-core": "milieuinfo/webcomponent-vl-ui-core#3.11.5",
+		"vl-ui-icon": "milieuinfo/webcomponent-vl-ui-icon#3.11.5",
+		"vl-ui-link": "milieuinfo/webcomponent-vl-ui-link#3.11.5"
 	},
 	"devDependencies": {
-		"@govflanders/vl-ui-breadcrumb": "3.9.2",
-		"@govflanders/vl-ui-button": "3.10.1",
-		"@govflanders/vl-ui-functional-header": "3.9.1",
-		"@govflanders/vl-ui-input-field": "3.9.2",
-		"@govflanders/vl-ui-link": "^3.10.1",
-		"@govflanders/vl-ui-search": "3.9.1",
-		"@govflanders/vl-ui-tabs": "3.9.1",
-		"@govflanders/vl-ui-util": "^3.10.1",
-		"vl-ui-util": "^5.2.10"
+		"@govflanders/vl-ui-breadcrumb": "3.11.5",
+		"@govflanders/vl-ui-button": "3.11.5",
+		"@govflanders/vl-ui-functional-header": "3.11.5",
+		"@govflanders/vl-ui-input-field": "3.11.5",
+		"@govflanders/vl-ui-link": "^3.11.5",
+		"@govflanders/vl-ui-search": "3.11.5",
+		"@govflanders/vl-ui-tabs": "3.11.5",
+		"@govflanders/vl-ui-util": "^3.11.5",
+		"vl-ui-util": "github:milieuinfo/webcomponent-vl-ui-util#3.11.5"
 	}
 }
