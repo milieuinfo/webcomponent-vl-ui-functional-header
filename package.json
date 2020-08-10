@@ -48,7 +48,7 @@
 	},
 	"devDependencies": {
 		"@govflanders/vl-ui-breadcrumb": "3.11.5",
-		"@govflanders/vl-ui-button": "3.10.1",
+		"@govflanders/vl-ui-button": "3.11.5",
 		"@govflanders/vl-ui-functional-header": "3.9.1",
 		"@govflanders/vl-ui-input-field": "3.9.2",
 		"@govflanders/vl-ui-link": "^3.10.1",
