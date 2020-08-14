@@ -13,6 +13,7 @@ import '/node_modules/vl-ui-icon/dist/vl-icon.js';
  * @property {String} data-vl-sub-title - Attribuut wordt gebruikt om de tekst van de sub titel te bepalen.
  *
  * @extends HTMLElement
+ * @mixes vlElement
  *
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-functional-header/releases/latest|Release notes}
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-functional-header/issues|Issues}
@@ -26,42 +27,42 @@ export class VlFunctionalHeader extends vlElement(HTMLElement) {
 
   constructor() {
     super(`
-        <style>
-            @import '/node_modules/vl-ui-functional-header/dist/style.css';
-            @import '/node_modules/vl-ui-link/dist/style.css';
-            @import '/node_modules/vl-ui-icon/dist/style.css';
-        </style>
-        <header class="vl-functional-header" role="banner">
-            <div class="vl-layout">
-                <div class="vl-functional-header__row">
-                    <div class="vl-functional-header__content">
-                        <h1 class="vl-title">
-                            <a id="title" class="vl-functional-header__title">
-                                <slot name="title"></slot>
-                            </a>
-                        </h1>
-                    </div>
-                    <div id="actions" class="vl-functional-header__actions">
-                        <ul></ul>
-                    </div>
-                </div>
-                <div class="vl-functional-header__sub">
-                    <ul class="vl-functional-header__sub__actions">
-                        <li class="vl-functional-header__sub__action">
-                            <a id="back-link" is="vl-link">
-                                <span is="vl-icon" data-vl-icon="arrow-left-fat" data-vl-before></span>
-                                <slot id="back-link-text" name="back">
-                                    <span>Terug</span>
-                                </slot>
-                            </a>
-                        </li>
-                        <li id="sub-title" class="vl-functional-header__sub__action">
-                            <slot name="sub-title"></slot>
-                        </li>
-                    </ul>
-                </div>
+      <style>
+        @import '/node_modules/vl-ui-functional-header/dist/style.css';
+        @import '/node_modules/vl-ui-link/dist/style.css';
+        @import '/node_modules/vl-ui-icon/dist/style.css';
+      </style>
+      <header class="vl-functional-header" role="banner">
+        <div class="vl-layout">
+          <div class="vl-functional-header__row">
+            <div class="vl-functional-header__content">
+              <h1 class="vl-title">
+                <a id="title" class="vl-functional-header__title" tabindex="0">
+                  <slot name="title"></slot>
+                </a>
+              </h1>
             </div>
-        </header>
+            <div id="actions" class="vl-functional-header__actions">
+              <ul></ul>
+            </div>
+          </div>
+          <div class="vl-functional-header__sub">
+            <ul class="vl-functional-header__sub__actions">
+              <li class="vl-functional-header__sub__action">
+                <a id="back-link" is="vl-link" tabindex="0">
+                  <span is="vl-icon" data-vl-icon="arrow-left-fat" data-vl-before></span>
+                  <slot id="back-link-text" name="back">
+                    <span>Terug</span>
+                  </slot>
+                </a>
+              </li>
+              <li id="sub-title" class="vl-functional-header__sub__action">
+                <slot name="sub-title"></slot>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
     `);
   }
 
@@ -101,11 +102,11 @@ export class VlFunctionalHeader extends vlElement(HTMLElement) {
 
   _getActionTemplate(element) {
     return this._template(`
-        <li class="vl-functional-header__action">
-            <p>
-                ${element.outerHTML}
-            </p>
-        </li>
+      <li class="vl-functional-header__action">
+        <p>
+          ${element.outerHTML}
+        </p>
+      </li>
     `);
   }
 

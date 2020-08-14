@@ -32,7 +32,7 @@
   </test-fixture>
 
   <script>
-    suite('<vl-functional-header>', () => {
+    suite('vl-functional-header', () => {
       const should = chai.should();
       const sandbox = sinon.createSandbox();
 
@@ -144,6 +144,12 @@
           [...element._actionsListElement.children].forEach((child, index) => assert.isTrue(child.querySelector('p').firstElementChild.isEqualNode(actions[index])));
           done();
         });
+      });
+
+      test('de link elementen hebben een tabindex zodat ze bereikbaar zijn via de tab toets', () => {
+        const element = fixture('vl-functional-header-fixture');
+        assert.equal(element._titleElement.getAttribute('tabindex'), 0);
+        assert.equal(element._backLinkElement.getAttribute('tabindex'), 0);
       });
     });
   </script>
