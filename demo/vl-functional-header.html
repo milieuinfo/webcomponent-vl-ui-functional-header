@@ -4,13 +4,14 @@
 <head>
     <title>vl-functional-header voorbeeld</title>
     <script type="module" src="/node_modules/vl-ui-demo/dist/vl-demo-all.js"></script>
+    <script type="module" src="/node_modules/vl-ui-body/dist/vl-body.js"></script>
 
     <script type="module" src="/src/vl-functional-header.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-core/dist/style.css" />
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-body/dist/style.css" />
 </head>
 
-<body>
+<body is="vl-body">
     <vl-demo-page data-vl-webcomponent="vl-functional-header" data-vl-link="https://overheid.vlaanderen.be/webuniversum/v3/documentation/components/vl-ui-functional-header">
         <vl-demo data-vl-title="Functional header">
             <vl-functional-header id="functional-header" data-vl-title="School- en studietoelagen" data-vl-sub-title="Voor lager, middelbaar en hoger onderwijs" data-vl-link="#"></vl-functional-header>
