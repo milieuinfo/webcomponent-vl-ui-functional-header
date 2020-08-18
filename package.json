@@ -1,6 +1,6 @@
 {
 	"name": "vl-ui-functional-header",
-	"version": "1.2.5",
+	"version": "1.2.6",
 	"description": "Toont bovenaan de pagina generieke informatie zonder af te leiden zoals bijvoorgeeld titel, acties, tab navigatie of zoek input.",
 	"author": "DIDM",
 	"license": "MIT",
