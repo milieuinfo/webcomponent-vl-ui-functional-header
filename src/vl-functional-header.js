@@ -49,7 +49,7 @@ export class VlFunctionalHeader extends vlElement(HTMLElement) {
           <div class="vl-functional-header__sub">
             <ul class="vl-functional-header__sub__actions">
               <li class="vl-functional-header__sub__action">
-                <a id="back-link" is="vl-link" tabindex="0">
+                <a id="back-link" is="vl-link" tabindex="0" href="${document.referrer}">
                   <span is="vl-icon" data-vl-icon="arrow-left-fat" data-vl-before></span>
                   <slot id="back-link-text" name="back">
                     <span>Terug</span>
@@ -67,7 +67,6 @@ export class VlFunctionalHeader extends vlElement(HTMLElement) {
   }
 
   connectedCallback() {
-    this._registerBackLink();
     this._observer = this.__observeSlotElements(() => this.__processSlotElements());
     this.__processSlotElements();
   }
@@ -124,10 +123,6 @@ export class VlFunctionalHeader extends vlElement(HTMLElement) {
 
   _backChangedCallback(oldValue, newValue) {
     this._backLinkTextElement.innerText = newValue;
-  }
-
-  _registerBackLink() {
-    this.backLinkEventListener = () => window.history.back();
   }
 
   /**
