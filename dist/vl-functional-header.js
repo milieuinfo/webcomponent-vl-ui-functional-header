@@ -8,6 +8,7 @@ import '/node_modules/vl-ui-icon/dist/vl-icon.js';
  * @classdesc Toont bovenaan de pagina generieke informatie zonder af te leiden zoals bijvoorgeeld titel, acties, tab navigatie of zoek input.
  *
  * @property {String} data-vl-back - Attribuut wordt gebruikt om de terug link tekst te bepalen.
+ * @property {String} data-vl-back-link - Attribuut wordt gebruikt om de terug link te bepalen.
  * @property {String} data-vl-link - Attribuut wordt gebruikt om de link van de titel te bepalen.
  * @property {String} data-vl-title - Attribuut wordt gebruikt om de tekst van de titel te bepalen.
  * @property {String} data-vl-sub-title - Attribuut wordt gebruikt om de tekst van de sub titel te bepalen.
@@ -22,7 +23,7 @@ import '/node_modules/vl-ui-icon/dist/vl-icon.js';
  */
 export class VlFunctionalHeader extends vlElement(HTMLElement) {
   static get _observedAttributes() {
-    return ['back', 'title', 'sub-title', 'link'];
+    return ['back', 'back-link', 'title', 'sub-title', 'link'];
   }
 
   constructor() {
@@ -49,7 +50,7 @@ export class VlFunctionalHeader extends vlElement(HTMLElement) {
           <div class="vl-functional-header__sub">
             <ul class="vl-functional-header__sub__actions">
               <li class="vl-functional-header__sub__action">
-                <a id="back-link" is="vl-link" tabindex="0">
+                <a id="back-link" is="vl-link" tabindex="0" href="${document.referrer}">
                   <span is="vl-icon" data-vl-icon="arrow-left-fat" data-vl-before></span>
                   <slot id="back-link-text" name="back">
                     <span>Terug</span>
@@ -67,7 +68,6 @@ export class VlFunctionalHeader extends vlElement(HTMLElement) {
   }
 
   connectedCallback() {
-    this._registerBackLink();
     this._observer = this.__observeSlotElements(() => this.__processSlotElements());
     this.__processSlotElements();
   }
@@ -126,8 +126,8 @@ export class VlFunctionalHeader extends vlElement(HTMLElement) {
     this._backLinkTextElement.innerText = newValue;
   }
 
-  _registerBackLink() {
-    this.backLinkEventListener = () => window.history.back();
+  _backLinkChangedCallback(oldValue, newValue) {
+    this._backLinkElement.href = newValue || document.referrer;
   }
 
   /**

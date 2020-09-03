@@ -142,6 +142,21 @@
         assert.equal(element._titleElement.getAttribute('tabindex'), 0);
         assert.equal(element._backLinkElement.getAttribute('tabindex'), 0);
       });
+
+      test('het back link href attribuut kan bepaald worden', () => {
+        const element = fixture('vl-functional-header-fixture');
+        const href = 'https://www.google.be/';
+        element.setAttribute('back-link', href);
+        assert.equal(element._backLinkElement.href, href);
+      });
+
+      test('bij het verwijderen van het custom back link href attribuut zal de document referrer als fallback gebruikt worden', () => {
+        const element = fixture('vl-functional-header-fixture');
+        element.setAttribute('back-link', 'https://www.google.be/');
+        assert.notInclude(element._backLinkElement.href, 'http://localhost:8081/components/vl-ui-functional-header/generated-index.html');
+        element.removeAttribute('back-link');
+        assert.include(element._backLinkElement.href, 'http://localhost:8081/components/vl-ui-functional-header/generated-index.html');
+      });
     });
   </script>
 </body>

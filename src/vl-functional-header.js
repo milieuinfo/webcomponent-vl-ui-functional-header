@@ -8,6 +8,7 @@ import '/node_modules/vl-ui-icon/dist/vl-icon.js';
  * @classdesc Toont bovenaan de pagina generieke informatie zonder af te leiden zoals bijvoorgeeld titel, acties, tab navigatie of zoek input.
  *
  * @property {String} data-vl-back - Attribuut wordt gebruikt om de terug link tekst te bepalen.
+ * @property {String} data-vl-back-link - Attribuut wordt gebruikt om de terug link te bepalen.
  * @property {String} data-vl-link - Attribuut wordt gebruikt om de link van de titel te bepalen.
  * @property {String} data-vl-title - Attribuut wordt gebruikt om de tekst van de titel te bepalen.
  * @property {String} data-vl-sub-title - Attribuut wordt gebruikt om de tekst van de sub titel te bepalen.
@@ -22,7 +23,7 @@ import '/node_modules/vl-ui-icon/dist/vl-icon.js';
  */
 export class VlFunctionalHeader extends vlElement(HTMLElement) {
   static get _observedAttributes() {
-    return ['back', 'title', 'sub-title', 'link'];
+    return ['back', 'back-link', 'title', 'sub-title', 'link'];
   }
 
   constructor() {
@@ -123,6 +124,10 @@ export class VlFunctionalHeader extends vlElement(HTMLElement) {
 
   _backChangedCallback(oldValue, newValue) {
     this._backLinkTextElement.innerText = newValue;
+  }
+
+  _backLinkChangedCallback(oldValue, newValue) {
+    this._backLinkElement.href = newValue || document.referrer;
   }
 
   /**
