@@ -80,7 +80,7 @@
       test('bevat een back link element die bij het klikken de vorige browser pagina zal openen', () => {
         const element = fixture('vl-functional-header-fixture');
         const backLink = element._backLinkElement;
-        assert.include(backLink.href, 'http://localhost:8081/components/vl-ui-functional-header/generated-index.html');
+        assert.include(backLink.href, '/components/vl-ui-functional-header/generated-index.html');
       });
 
       test('de click event listener van de back link kan gewijzigd worden', (done) => {
@@ -153,9 +153,9 @@
       test('bij het verwijderen van het custom back link href attribuut zal de document referrer als fallback gebruikt worden', () => {
         const element = fixture('vl-functional-header-fixture');
         element.setAttribute('back-link', 'https://www.google.be/');
-        assert.notInclude(element._backLinkElement.href, 'http://localhost:8081/components/vl-ui-functional-header/generated-index.html');
+        assert.notInclude(element._backLinkElement.href, '/components/vl-ui-functional-header/generated-index.html');
         element.removeAttribute('back-link');
-        assert.include(element._backLinkElement.href, 'http://localhost:8081/components/vl-ui-functional-header/generated-index.html');
+        assert.include(element._backLinkElement.href, '/components/vl-ui-functional-header/generated-index.html');
       });
     });
   </script>
