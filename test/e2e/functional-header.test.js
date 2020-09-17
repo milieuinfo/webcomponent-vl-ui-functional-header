@@ -34,18 +34,6 @@ describe('vl-functional-header', async () => {
     assert.isTrue(url.endsWith('/demo/vl-functional-header.html?no-header=true&no-footer=true#'));
   });
 
-  it('als gebruiker kan ik naar de vorige pagina gaan', async () => {
-    const URL = 'https://nodejs.org/en/';
-    await driver.get(URL);
-    await vlFunctionalHeaderPage.load();
-    const functionalHeader = await vlFunctionalHeaderPage.getFunctionalHeader();
-    await assert.eventually.isTrue(vlFunctionalHeaderPage.isCurrentPage());
-    await functionalHeader.back();
-    await assert.eventually.isFalse(vlFunctionalHeaderPage.isCurrentPage());
-    await assert.eventually.equal(driver.getCurrentUrl(), URL);
-    await vlFunctionalHeaderPage.load();
-  });
-
   it('als gebruiker kan ik op een actie klikken', async () => {
     const functionalHeader = await vlFunctionalHeaderPage.getFunctionalHeaderActionsSlot();
     const actions = await functionalHeader.getActionNodes();
