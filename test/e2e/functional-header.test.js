@@ -1,10 +1,13 @@
-const {assert, driver} = require('vl-ui-core').Test.Setup;
+const {assert, getDriver} = require('vl-ui-core').Test.Setup;
 const VlFunctionalHeaderPage = require('./pages/vl-functional-header.page');
 
 describe('vl-functional-header', async () => {
-  const vlFunctionalHeaderPage = new VlFunctionalHeaderPage(driver);
+  let driver;
+  let vlFunctionalHeaderPage;
 
   before(() => {
+    driver = getDriver();
+    vlFunctionalHeaderPage = new VlFunctionalHeaderPage(driver);
     return vlFunctionalHeaderPage.load();
   });
 
