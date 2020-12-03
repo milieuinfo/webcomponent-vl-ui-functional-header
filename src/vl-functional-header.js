@@ -51,10 +51,7 @@ export class VlFunctionalHeader extends vlElement(HTMLElement) {
             <ul class="vl-functional-header__sub__actions">
               <li class="vl-functional-header__sub__action">
                 <a id="back-link" is="vl-link" tabindex="0" href="${document.referrer}">
-                  <span is="vl-icon" data-vl-icon="arrow-left-fat" data-vl-before></span>
-                  <slot id="back-link-text" name="back">
-                    <span>Terug</span>
-                  </slot>
+                  <span is="vl-icon" data-vl-icon="arrow-left-fat" data-vl-before></span><slot id="back-link-text" name="back"><span>Terug</span></slot>
                 </a>
               </li>
               <li id="sub-title" class="vl-functional-header__sub__action">
