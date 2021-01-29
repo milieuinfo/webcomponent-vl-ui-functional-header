@@ -1,3 +1,1 @@
-module.exports = {
-  VlFunctionalHeader: require('../dist/vl-functional-header.src.js').VlFunctionalHeader,
-};
+export * from '../dist/vl-functional-header.src.js';
