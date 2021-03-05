@@ -157,6 +157,11 @@
         element.removeAttribute('back-link');
         assert.include(element._backLinkElement.href, '/components/vl-ui-functional-header/generated-index.html');
       });
+
+      test('WCAG het header element bevat geen role banner attribuut', () => {
+        const element = fixture('vl-functional-header-fixture');
+        assert.isFalse(element._element.hasAttribute('role'));
+      });
     });
   </script>
 </body>

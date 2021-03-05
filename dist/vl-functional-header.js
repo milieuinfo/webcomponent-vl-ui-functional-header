@@ -33,7 +33,7 @@ export class VlFunctionalHeader extends vlElement(HTMLElement) {
         @import '/node_modules/vl-ui-link/dist/style.css';
         @import '/node_modules/vl-ui-icon/dist/style.css';
       </style>
-      <header class="vl-functional-header" role="banner">
+      <header class="vl-functional-header">
         <div class="vl-layout">
           <div class="vl-functional-header__row">
             <div class="vl-functional-header__content">
