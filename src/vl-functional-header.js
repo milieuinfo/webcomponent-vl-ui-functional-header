@@ -37,11 +37,11 @@ export class VlFunctionalHeader extends vlElement(HTMLElement) {
         <div class="vl-layout">
           <div class="vl-functional-header__row">
             <div class="vl-functional-header__content">
-              <h1 class="vl-title">
+              <div class="vl-title">
                 <a id="title" class="vl-functional-header__title" tabindex="0">
                   <slot name="title"></slot>
                 </a>
-              </h1>
+              </div>
             </div>
             <div id="actions" class="vl-functional-header__actions">
               <ul></ul>
