@@ -11,6 +11,10 @@ describe('vl-functional-header', async () => {
     return vlFunctionalHeaderPage.load();
   });
 
+  it('WCAG', async () => {
+    await assert.eventually.isFalse(vlFunctionalHeaderPage.hasWcagIssues());
+  });
+
   it('als gebruiker kan ik de titel en sub titel van de functionele header zien', async () => {
     const functionalHeader = await vlFunctionalHeaderPage.getFunctionalHeader();
     const title = await functionalHeader.getTitle();
