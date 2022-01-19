@@ -53,7 +53,7 @@
 		"@govflanders/vl-ui-functional-header": "^3.12.3",
 		"@govflanders/vl-ui-input-field": "^3.12.3",
 		"@govflanders/vl-ui-link": "^3.12.3",
-		"@govflanders/vl-ui-search": "^3.12.3",
+		"@govflanders/vl-ui-search": "^11.0.0",
 		"@govflanders/vl-ui-tabs": "^3.12.3",
 		"@govflanders/vl-ui-util": "^3.12.3",
 		"vl-ui-body": "^1.0.8",
